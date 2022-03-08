@@ -1,3 +1,4 @@
+// Pretty similar to professor's solution but does not work
 const validAnagram = (a, b) => {
   if (a === '' && b === '') return true;
   if (a.length !== b.length) return false;
@@ -23,7 +24,6 @@ const validAnagram = (a, b) => {
 };
 
 console.log(validAnagram('aaz', 'zza'));
-// Pretty similar to professor's solution but does not work
 
 // Another:
 /*
