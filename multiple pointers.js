@@ -36,4 +36,16 @@ const areThereDuplicates = (...arg) => {
   return false;
 };
 
-console.log(areThereDuplicates('1', '2', '3', '2'));
+// console.log(areThereDuplicates('1', '2', '3', '2'));
+
+// CHALLENGE
+
+const averagePair = (arr, target) => {
+  for (let i = 0; i < arr.length; i++) {
+    const el = arr[i];
+    if ((el + arr[i + 1]) / 2 === target) return true;
+    return false;
+  }
+};
+
+averagePair([1, 2, 3], 2.5);
