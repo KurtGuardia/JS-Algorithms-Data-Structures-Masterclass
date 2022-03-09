@@ -41,11 +41,30 @@ const areThereDuplicates = (...arg) => {
 // CHALLENGE
 
 const averagePair = (arr, target) => {
-  for (let i = 0; i < arr.length; i++) {
-    const el = arr[i];
-    if ((el + arr[i + 1]) / 2 === target) return true;
-    return false;
+  const double = target * 2;
+
+  arr.push(target);
+  const sorted = arr.sort((a, b) => a - b);
+  const middle = sorted.findIndex((el) => el === target);
+
+  const bottom = {};
+  const bottomArr = sorted.slice(0, middle);
+
+  for (const key of bottomArr) {
+    bottom[key] = '';
+  }
+
+  let i = 0;
+
+  for (let j = 1; j <= arr.length; j++) {
+    const el = arr[arr.length - j];
+    let pair = double - el;
+
+    if (pair > 0) {
+      const missing = (double - (el + arr[i])).toString();
+      return bottom.hasOwnProperty(missing);
+    }
   }
 };
 
-averagePair([1, 2, 3], 2.5);
+console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8));
