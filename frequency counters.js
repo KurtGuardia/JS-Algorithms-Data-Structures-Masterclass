@@ -1,29 +1,29 @@
-// Pretty similar to professor's solution but does not work
-const validAnagram = (a, b) => {
-  if (a === '' && b === '') return true;
-  if (a.length !== b.length) return false;
+// // Pretty similar to professor's solution but does not work
+// const validAnagram = (a, b) => {
+//   if (a === '' && b === '') return true;
+//   if (a.length !== b.length) return false;
 
-  const frequencyA = {};
-  const frequencyB = {};
+//   const frequencyA = {};
+//   const frequencyB = {};
 
-  for (const i of a) {
-    frequencyA[i] = (frequencyA[i] || 0) + 1;
-  }
+//   for (const i of a) {
+//     frequencyA[i] = (frequencyA[i] || 0) + 1;
+//   }
 
-  for (const i of b) {
-    frequencyB[i] = (frequencyB[i] || 0) + 1;
-  }
+//   for (const i of b) {
+//     frequencyB[i] = (frequencyB[i] || 0) + 1;
+//   }
 
-  for (const key in frequencyB) {
-    if (!frequencyA[key]) return false;
-    else frequencyA[key] -= 1;
-  }
-  console.log(frequencyA);
-  console.log(frequencyB);
-  return true;
-};
+//   for (const key in frequencyB) {
+//     if (!frequencyA[key]) return false;
+//     else frequencyA[key] -= 1;
+//   }
+//   console.log(frequencyA);
+//   console.log(frequencyB);
+//   return true;
+// };
 
-console.log(validAnagram('aaz', 'zza'));
+// console.log(validAnagram('aaz', 'zza'));
 
 // Another:
 /*
@@ -39,3 +39,23 @@ function validAnagram(str1, str2){
   
   return sortedStr1 === sortedStr2;
 }*/
+
+// CHALLENGE
+
+// let array = number.toString().split("");
+//   	return array.map(x => parseInt(x));
+
+const sameFrecuency = (a, b) => {
+  const arrA = ('' + a).split('').sort();
+  const arrB = ('' + b).split('').sort();
+
+  if (arrA.length !== arrB.length) return false;
+
+  for (let i = 0; i < arrA.length; i++) {
+    if (arrB[i] !== arrA[i]) return false;
+  }
+
+  return true;
+};
+
+sameFrecuency(534, 453);
